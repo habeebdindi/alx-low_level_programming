@@ -13,8 +13,8 @@ int main(void)
 	while (letters <= 'z')
 	{
 		putchar(letters);
-		putchar('\n');
 		letters++;
+		putchar('\n');
 	}
 	return (0);
 }
