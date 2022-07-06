@@ -1,19 +1,17 @@
 #include "main.h"
 
 /**
- * main - enrty point, calls other functions
+ * print_alphabet - prints out alphabets a to z
  *
- * Return: return 0 always
+ * Return: return the letters a-z
  */
-
-int main(void)
-{
-	int alph1;
-
-	for (alph1 = 'a'; alph1 <= 'z'; alph1++)
+void print_alphabet(void)
 	{
-		_putchar(alph1);
+		int alph1;
+
+		for (alph1 = 'a'; alph1 <= 'z'; alph1++)
+		{
+			_putchar(alph1);
+		}
+		_putchar('\n');
 	}
-	_putchar('\n');
-	return (0);
-}

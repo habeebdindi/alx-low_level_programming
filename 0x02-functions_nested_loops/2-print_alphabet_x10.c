@@ -6,7 +6,7 @@
  * Return: Return 0 always
  */
 
-int main(void)
+void print_alphabet_x10(void)
 {
 	int n;
 	int alph1;
@@ -23,6 +23,4 @@ int main(void)
 		_putchar('\n');
 		n++;
 	}
-	return (0);
 }
-
