@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * int print_sign - function prints the arithmetic sign of a number
+ * print_sign - function prints the arithmetic sign of a number
  * @n: The number whose sign is to be determined
  *
  * Return: Returns 1 and prints + if n is greater than zero,
