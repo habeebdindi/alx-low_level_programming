@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * main - entry point, calls other functions from header file.
+ * print_alphabet_x10 - prints the 26 alphabets in 10 lines.
  *
- * Return: Return 0 always
+ * Return: function type is void, hence no return value
  */
 
 void print_alphabet_x10(void)
@@ -11,7 +11,7 @@ void print_alphabet_x10(void)
 	int n;
 	int alph1;
 
-	n = 0;
+	n = 1;
 	while (n < 11)
 	{
 		alph1 = 'a';
