@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "main.h"
 /**
  * main - prints the numbers 1-100.
  *
@@ -14,7 +13,7 @@ int main(void)
 	int c;
 
 	c = 1;
-	while (c < 100)
+	while (c <= 100)
 	{
 		if (c % 3 == 0 && c % 5 == 0)
 		{
@@ -38,6 +37,6 @@ int main(void)
 		}
 		c++;
 	}
-	_putchar('\n');
+	printf("\n");
 	return (0);
 }
