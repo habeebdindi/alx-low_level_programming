@@ -9,7 +9,7 @@
  */
 char *_strchr(char *s, char c)
 {
-	int i, *p, *n;
+	char i, *p;
 
 	for (i = 0; i < '\0'; i++)
 	{
@@ -19,6 +19,5 @@ char *_strchr(char *s, char c)
 		}
 		return (p);
 	}
-	n = NULL;
-	return (n);
+	return (NULL);
 }
