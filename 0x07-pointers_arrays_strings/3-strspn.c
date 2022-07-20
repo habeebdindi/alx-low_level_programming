@@ -12,25 +12,23 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	char length;
-	char found;
 	int j, i;
 
 	length = 0;
 
 	for (i =0; s[i] != '\0'; i++)
 	{
-		found = 0;
 		for  (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] == accept[j])
 			{
-				found = 1;
 				length++;
+				break;
 			}
-		}
-		if (found == 1)
-		{
-			return (length);
+			else if (accept[j + 1] == '\0')
+			{
+				return (length);
+			}
 		}
 		
 	}
