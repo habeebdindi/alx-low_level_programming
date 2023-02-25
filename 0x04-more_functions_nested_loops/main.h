@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdint.h>
 
 int _isupper(int c);
 int _isdigit(int c);
@@ -12,7 +13,7 @@ void print_line(int n);
 void print_diagonal(int n);
 void print_square(int size);
 void print_triangle(int size);
-int is_prime(long int n);
+int is_prime(int64_t n);
 void print_number(int n);
 
 #endif
