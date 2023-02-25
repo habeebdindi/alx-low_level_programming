@@ -1,5 +1,6 @@
 #include "main.h"
-#include "stdio.h"
+#include <stdio.h>
+#include <stdint.h>
 
 /**
  * is_prime - Checks if a number is a prime number.
@@ -8,9 +9,9 @@
  * Return: Always 0.
  */
 
-int is_prime(long int n)
+int is_prime(int64_t n)
 {
-	long int i = 2;
+	int64_t i = 2;
 
 	if (n < 2)
 		return (0);
@@ -32,8 +33,8 @@ int is_prime(long int n)
  */
 int main(void)
 {
-	long int i;
-	long int num;
+	int64_t i;
+	int64_t num;
 
 	num = 612852475143;
 	/* num = 600; */
