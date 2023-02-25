@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * print_number - Prints integer using _putchar.
@@ -9,17 +10,20 @@
 
 void print_number(int n)
 {
-	int preceding;
+	int preceding, last_digit;
 
 	preceding = n / 10;
-	if (n < 0)
-	{
-		_putchar(45);
-		n = -n;
-	}
 
 	if (preceding)
-		print_number(n / 10);
+		print_number(preceding);
 
-	_putchar((n % 10) + 48);
+	last_digit = n % 10;
+
+	if (last_digit < 0)
+	{
+		last_digit = -last_digit;
+		_putchar(last_digit + 48);
+	}
+	else
+		_putchar((last_digit) + 48);
 }
