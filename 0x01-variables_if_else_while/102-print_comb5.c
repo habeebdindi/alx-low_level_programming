@@ -11,10 +11,10 @@ int main(void)
 	int i, j;
 
 	i = 0;
-	while(i < 99)
+	while (i < 99)
 	{
 		j = 1;
-		while(j < 100)
+		while (j < 100)
 		{
 			if (i < j)
 			{
