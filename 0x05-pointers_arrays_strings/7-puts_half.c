@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strlen - Counts length of a string.
@@ -28,13 +29,13 @@ int _strlen(char *s)
 void puts_half(char *str)
 {
 	int len = _strlen(str);
-	int n = (_strlen(str) - 1) / 2;
+	int n = (_strlen(str)) / 2;
 	int i, j;
 
 	if (len % 2 == 0)
 	{
 		i = len / 2;
-		while (i <= len)
+		while (i < len)
 		{
 			_putchar(str[i]);
 			i++;
@@ -43,7 +44,7 @@ void puts_half(char *str)
 	}
 	else if (len % 2 != 0)
 	{
-		for (j = n; j <= len; j++)
+		for (j = len - n; j < len; j++)
 		{
 			_putchar(str[j]);
 			j++;
