@@ -13,6 +13,8 @@ char *cap_string(char *s)
 	char sep[] = " \t\n,;.!?\"(){}";
 	char *sepp;
 
+	if (*s > 96 && *s < 123)
+		*s -= 32;
 	while (*s)
 	{
 		for (sepp = sep; *sepp; sepp++)
