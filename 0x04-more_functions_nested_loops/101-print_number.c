@@ -10,20 +10,14 @@
 
 void print_number(int n)
 {
-	int preceding, last_digit;
+	int last_digit = 0;
 
-	preceding = n / 10;
+	if (n < 0)
+		_putchar('-');
 
-	if (preceding)
-		print_number(preceding);
+	if (n / 10)
+		print_number(n / 10);
 
 	last_digit = n % 10;
-
-	if (last_digit < 0)
-	{
-		last_digit = -last_digit;
-		_putchar(last_digit + 48);
-	}
-	else
-		_putchar((last_digit) + 48);
+	_putchar(last_digit + 48);
 }
