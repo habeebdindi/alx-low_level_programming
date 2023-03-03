@@ -4,6 +4,7 @@
  * _strncpy - Copies a string.
  * @dest: Destination string.
  * @src: Source to be copied from.
+ * @n: Number of bytes to opy from src.
  *
  * Return: A pointer to the string.
  */

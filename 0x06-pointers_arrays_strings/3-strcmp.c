@@ -5,7 +5,8 @@
  * @s1: The first string.
  * @s2: The second string.
  *
- * Return: an int > 0 if s1 is smaller than 0, and int < 0 if bigger and an int = 0 if srings are the same.
+ * Return: an int > 0 if s1 is smaller than 0, and int < 0 if bigger and
+ * an int = 0 if srings are the same.
  */
 
 int _strcmp(char *s1, char *s2)

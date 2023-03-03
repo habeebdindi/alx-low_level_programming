@@ -14,7 +14,7 @@ char *leet(char *s)
 	char capt[] = "AEOTL";
 	char *ptr, *ptr2;
 
-	while(*s)
+	while (*s)
 	{
 		for (ptr = capt, ptr2 = leet; *ptr; ptr++, ptr2++)
 			if (*s == *ptr || *s == *ptr + 32)
