@@ -12,20 +12,20 @@
 
 void pr_int(int n) {
     if (n < 0) {
-        putchar('-');
+        _putchar('-');
         n = -n;
     }
     if (n / 10 != 0)
         pr_int(n / 10);
-    putchar((n % 10) + 48);
+    _putchar((n % 10) + 48);
 }
 
 void print_number(int n)
 {
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		n = -n;
 	}
-	pr_uint((unsigned int) n);
+	pr_int((unsigned int) n);
 }
