@@ -16,8 +16,8 @@ char *rot13(char *s)
 
 	while (*s)
 	{
-	        for (ptr = hf, ptr1 = he; *ptr; ptr++, ptr1++)
-        		if (((*s > 64 && *s < 91) || (*s > 96 && *s < 123)) && *s == *ptr)
+		for (ptr = hf, ptr1 = he; *ptr; ptr++, ptr1++)
+			if (((*s > 64 && *s < 91) || (*s > 96 && *s < 123)) && *s == *ptr)
 			{
 				*s = *ptr1;
 				break;
