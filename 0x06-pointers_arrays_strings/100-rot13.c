@@ -10,19 +10,18 @@
 char *rot13(char *s)
 {
 	char *ret = s;
-	char half1[] = "AaBbCcDdEeFfGgHhIiJjKkLlMm";
-	char half2[] = "NnOoPpQqRrSsTtUuVvWwXxYyZz";
+	char hf[] = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+	char he[] = "NnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMm";
 	char *ptr, *ptr1;
 
 	while (*s)
 	{
-		for (ptr = half1, ptr1 = half2; *ptr && *ptr1; ptr++, ptr1++)
-		{
-	       		if (*s == *ptr)
-    	       			*s = *ptr1;
-	       		else if (*s == *ptr1)
-	       			*s = *ptr;
-		}
+	        for (ptr = hf, ptr1 = he; *ptr; ptr++, ptr1++)
+        		if (((*s > 64 && *s < 91) || (*s > 96 && *s < 123)) && *s == *ptr)
+			{
+				*s = *ptr1;
+				break;
+			}
 		s++;
 	}
 	return (ret);
