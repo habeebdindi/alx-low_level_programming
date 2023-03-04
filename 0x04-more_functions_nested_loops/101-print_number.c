@@ -8,16 +8,24 @@
  * Return: void
  */
 
+
+
+void pr_int(int n) {
+    if (n < 0) {
+        putchar('-');
+        n = -n;
+    }
+    if (n / 10 != 0)
+        pr_int(n / 10);
+    putchar((n % 10) + 48);
+}
+
 void print_number(int n)
 {
-	int last_digit = 0;
-
 	if (n < 0)
-		_putchar('-');
-
-	if (n / 10)
-		print_number(n / 10);
-
-	last_digit = n % 10;
-	_putchar(last_digit + 48);
+	{
+		putchar('-');
+		n = -n;
+	}
+	pr_uint((unsigned int) n);
 }
