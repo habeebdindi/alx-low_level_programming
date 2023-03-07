@@ -25,20 +25,21 @@ char *_strstr(char *haystack, char *needle)
 		mtc++;
 		len++;
 	}
-	while (*haystack)
+	ptr = haystack;
+	while (*ptr)
 	{
 		check = rec;
 		for (mtc = needle; *mtc != '\0'; mtc++)
-			if (*haystack == *mtc)
+			if (*ptr == *mtc)
 				rec++;
 		if (check == rec)
 			rec = 0;
 		else if (rec == len)
 		{
-			ptr = (haystack - (len - 1));
+			ptr -= len - 1;
 			return (ptr);
 		}
-		haystack++;
+		ptr++;
 	}
 	return (NULL);
 }
