@@ -14,11 +14,8 @@ char *_strchr(char *s, char c)
 {
 	char *ptr;
 
-	for (; *s; s++)
-		if (*s == c)
-		{
-			ptr = s;
+	for (ptr = s; *ptr; ptr++)
+		if (*ptr == c)
 			return (ptr);
-		}
 	return (NULL);
 }
