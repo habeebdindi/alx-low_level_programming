@@ -1,0 +1,1 @@
+# This directory contains C source files for programs performing actions similar to or the same as some functions defined in the standard library
