@@ -17,5 +17,7 @@ char *_strchr(char *s, char c)
 	for (ptr = s; *ptr; ptr++)
 		if (*ptr == c)
 			return (ptr);
+	if (*ptr == c)
+		return (ptr);
 	return (NULL);
 }
