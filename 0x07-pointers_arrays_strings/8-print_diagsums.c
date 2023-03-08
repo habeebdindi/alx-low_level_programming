@@ -11,14 +11,14 @@
 
 void print_diagsums(int *a, int size)
 {
-	int row, col, r_l, l_r;
+	int row, r_l, l_r;
 
 	l_r = r_l = 0;
 
-	for (row = col = 0; row < size; row++, col++)
+	for (row = 0; row < size; row++)
 	{
-		l_r += a[row * size + col];
-		r_l += a[row * size + (size - 1 - col)];
+		l_r += a[row * size + row];
+		r_l += a[row * size + (size - 1 - row)];
 	}
 	printf("%d, %d\n", l_r, r_l);
 }
