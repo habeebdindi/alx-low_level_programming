@@ -11,9 +11,7 @@ int is_palindrome(char *s)
 {
 	char *beg = s;
 
-	while (*s)
-		s++;
-	return (helper(beg, --s));
+	return (helper(beg, s + _strlen_recursion(s) - 1));
 }
 
 
@@ -34,4 +32,21 @@ int helper(char *beg, char *end)
 		return (helper(beg + 1, end - 1));
 	}
 	return (0);
+}
+
+
+/**
+ * _strlen_recursion - returns the length of a string.
+ * @s: the string.
+ * Return: void.
+ */
+
+int _strlen_recursion(char *s)
+{
+        int len = 0;
+
+        if (!*s)
+                return (0);
+        len++;
+        return (len + _strlen_recursion(s + 1));
 }
