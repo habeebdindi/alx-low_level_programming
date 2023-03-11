@@ -1,0 +1,1 @@
+# This directory contains a custom built static library of some functions.
