@@ -15,6 +15,7 @@ int main(void)
 
 	fib1 = 1;
 	fib2 = 2;
+	printf("%ld, %ld, ", fib1, fib2);
 	for (i = 0; i < 98; i++)
 	{
 		tmp = fib1;
