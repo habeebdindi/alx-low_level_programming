@@ -93,13 +93,14 @@ void print_times_table(int n)
 	if (n < 0 || n > 15)
 		return;
 	i = 0;
-	while (i < n + 1)
+	while (i <= n)
 	{
 		_putchar('0');
-		if (i < 10)
+		if (i < 10 && n > 0)
 			print_comma_space(3);
 		else
-			print_comma_space(2);
+			if (n > 0)
+				print_comma_space(2);
 		num = i;
 		j = 0;
 		while (j < n)
