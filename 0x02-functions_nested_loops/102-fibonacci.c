@@ -9,18 +9,17 @@
 
 int main(void)
 {
-	int i, fib1, fib2, fib3;
+	long int i, fib1, fib2, tmp;
 
 	fib1 = 1;
 	fib2 = 2;
-	printf("%d, %d, ", fib1, fib2);
+	printf("%ld, %ld, ", fib1, fib2);
 	for (i = 0; i < 50; i++)
 	{
-		fib3 = fib1 + fib2;
-		i++;
+		tmp = fib1;
 		fib1 = fib2;
-		fib2 = fib3;
-		printf("%d", fib3);
+		fib2 += tmp;
+		printf("%ld", fib2);
 		if (i != 49)
 			printf(", ");
 	}
