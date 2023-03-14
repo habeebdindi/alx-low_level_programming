@@ -10,19 +10,20 @@
 
 int main(int argc, char *argv[])
 {
-	int sum = 0;
 	int i;
+	char *endptr;
+	int sum = 0;
 
 	if (argc == 1)
 		printf("0\n");
-	for (i = 1; i < argc; i++)
+	for (i = 1; argv[i] != NULL; i++)
 	{
-		if (!atoi(argv[i]))
+		sum += strtol(argv[i], &endptr, 10);
+		if (*endptr)
 		{
 			printf("Error\n");
 			return (1);
 		}
-		sum += atoi(argv[i]);
 	}
 	if (argc > 1)
 		printf("%d\n", sum);
