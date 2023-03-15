@@ -1,0 +1,1 @@
+# This directory contains C source files for programs in which the heap memory is used.
