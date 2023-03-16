@@ -40,7 +40,7 @@ int main(void)
 		{
 			hi_n = tmp_h + fib1_h + (tmp_l + fib1_l) / div;
 			lo_n = (tmp_l + fib1_l) % div;
-			printf("%lu010%lu", hi_n, lo_n);
+			printf("%lu%lu", hi_n, lo_n);
 			tmp_h = fib1_h;
 			tmp_l = fib1_l;
 			fib1_h = hi_n;
