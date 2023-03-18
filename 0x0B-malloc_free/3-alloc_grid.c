@@ -11,20 +11,21 @@
 
 int **alloc_grid(int width, int height)
 {
-	int **arr;
+	int **array = malloc(sizeof(int *) * height);
 	int i, j;
 
 	if (width < 1 || height < 1)
 		return (NULL);
-	arr = malloc(width * sizeof(*arr));
-	for (i = 0; i < width; i++)
+	if (array == NULL)
+		return (NULL);
+	for (i = 0; i < height; i++)
 	{
-		arr[i] = malloc(height * sizeof(int));
-		if (arr[i] == NULL)
+		array[i] = malloc(sizeof(int) * width);
+		if (array[i] == NULL)
 			return (NULL);
 	}
-	for (i = 0; i < width; i++)
-		for (j = 0; j < height; j++)
-			arr[i][j] = 0;
-	return (arr);
+	for (i = 0; i < height; i++)
+		for (j = 0; j < width; j++)
+			array[i][j] = 0;
+	return (array);
 }
