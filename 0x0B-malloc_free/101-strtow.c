@@ -3,15 +3,19 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-/**
- */
+
 int wc(char *str);
 
+/**
+ * strtow - string to words.
+ * @str: the string.
+ * Return: a pointer to an array of words that make up str, ending with a NULL.
+ */
 char **strtow(char *str)
 {
 	int i = 0, j = 0, x = 0, st = 0, w = 0, len = 0;
 	char **ptr;
-	int stlen = strlen(str);
+	int stlen = strlen(str) + 1;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -21,7 +25,7 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; i < stlen; i++)
 	{
-		if (str[i] == ' ')
+		if (str[i] == ' ' || (i == stlen - 1 && str[i] != ' '))
 		{
 			if (i > 0 && str[i - 1] != ' ')
 			{
@@ -40,16 +44,24 @@ char **strtow(char *str)
 			len++;
 	}
 	ptr[j] = NULL;
+	if (j == 0)
+		return (NULL);
 	return (ptr);
 }
 
+/**
+ * wc - count words.
+ * @str: target string.
+ *
+ * Return: no. 0f words.
+ */
 int wc(char *str)
 {
 	int stlen = strlen(str);
 	int w = 0, i = 0;
 
 	for (i = 0; i < stlen; i++)
-		if (str[i] == ' ')
+		if (str[i] == ' ' || (str[i + 1] == '\0'))
 		{
 			if (i > 0 && str[i - 1] != ' ')
 				w++;
