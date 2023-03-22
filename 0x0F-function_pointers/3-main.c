@@ -1,5 +1,11 @@
 #include "3-calc.h"
-
+/**
+ * main - a basic calculator.
+ * @argc: argument count.
+ * @argv: array of pointers to main arguments.
+ *
+ * Return: Always 0.
+ */
 int main(int argc, char **argv)
 {
 	int (*result)(int, int);
