@@ -4,11 +4,10 @@
  * get_op_func - selects the correct function to perform the operation asked by
  * the user.
  * @s: selects the correct function to perform the operation asked by the user.
- * @a: 1st argument to the pointer to function.
- * @b: 2nd argument to the pointer to function.
+ *
  * Return: pointer to a function that takes in to int args and returns an int.
  */
-int (*get_op_func(char *s))(int a, int b)
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
 		{"+", op_add},
