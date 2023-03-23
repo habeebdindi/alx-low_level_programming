@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+/**
+ * main - prints its own opcode.
+ * @argc: main argument count.
+ * @argv: pointer to main argument.
+ *
+ * Return: 0 always but exits with status 1 and 2, if argc is not 2 and argv[1]
+ * is less than 0 respectively.
+ */
 int main(int argc, char **argv)
 {
 	char *opcode;
@@ -27,5 +35,5 @@ int main(int argc, char **argv)
 			printf(" ");
 	}
 	putchar('\n');
-	return(0);
+	return (0);
 }
