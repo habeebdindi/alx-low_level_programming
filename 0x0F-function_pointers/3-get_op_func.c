@@ -20,13 +20,14 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	i = 0;
-	while (i < 6 && strlen(s) == 1)
+	while (i < 5 && strlen(s) == 1)
 	{
 		if (*s == *(ops[i].op))
 		{
+			printf("in s loop\n");
 			return (ops[i].f);
 		}
 		i++;
 	}
-	return (NULL);
+        return (NULL);
 }
