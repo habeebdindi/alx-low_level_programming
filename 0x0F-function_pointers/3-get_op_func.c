@@ -23,10 +23,7 @@ int (*get_op_func(char *s))(int, int)
 	while (i < 5 && strlen(s) == 1)
 	{
 		if (*s == *(ops[i].op))
-		{
-			printf("in s loop\n");
 			return (ops[i].f);
-		}
 		i++;
 	}
         return (NULL);
