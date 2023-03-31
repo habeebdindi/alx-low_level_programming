@@ -22,9 +22,15 @@ list_t *add_node_end(list_t **head, const char *str)
 	end->next = NULL;
 	temp = malloc(sizeof(list_t));
 	if (!temp)
+	{
+		free(end->str);
+		free(end);
 		return (NULL);
+	}
 	if (!*head)
 	{
+		free(temp->str);
+		free(temp);
 		*head = end;
 		return (*head);
 	}
