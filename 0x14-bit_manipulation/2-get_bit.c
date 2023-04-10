@@ -12,8 +12,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int zero = 0;
 	unsigned long int bits, dup = n;
 
-	if (!dup)
-		return (0);
+	n = n < zero ? -n : n;
 	for (bits = 0; dup != 0; bits++)
 		dup >>= 1;
 	if (index >= bits || index < zero)
