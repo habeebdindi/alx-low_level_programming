@@ -9,12 +9,9 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned int zero = 0;
-	unsigned long int bits, dup = *n;
+	unsigned int bits = sizeof(unsigned int long) * 8 - 1;
 
-	for (bits = 0; dup != 0; bits++)
-		dup >>= 1;
-	if (index >= bits || index < zero)
+	if (index > bits)
 		return (-1);
 	*n |= 1 << index;
 	return (1);
