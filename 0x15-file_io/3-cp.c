@@ -48,7 +48,8 @@ int main(int ac, char **av)
 			/* exit(98); */
 			read_fail(&fd, &fd1, av[1]);
 		}
-		if (write(fd1, buf, nbytes) == -1)
+		nbytes = write(fd1, buf, nbytes);
+		if (nbytes == -1)
 		{
 			/* dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]); */
 			/* closer(&fd, &fd1); */
@@ -70,15 +71,25 @@ int main(int ac, char **av)
  */
 void closer(int *f, int *f1)
 {
-	if (f && close(*f) == -1)
+	int check = 0;
+
+	if (f /* && close(*f) == -1 */)
 	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
-		exit(100);
+		check = close(*f);
+		if (check == -1)
+		{
+			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
+			exit(100);
+		}
 	}
-	if (f1 && close(*f1) == -1)
+	if (f1 /* && close(*f1) == -1 */)
 	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
-		exit(100);
+		check = close(*f1);
+		if (check == -1)
+		{
+			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
+			exit(100);
+		}
 	}
 }
 
