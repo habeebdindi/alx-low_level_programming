@@ -36,21 +36,22 @@ int main(int ac, char **av)
 		/* exit(99); */
 		write_fail(&fd, NULL, av[2]);
 	}
-	buf = malloc(strlen(av[1]) + 1);
+	buf = malloc(1024);
 	if (!buf)
 		return (-1);
 	while ((nbytes = read(fd, buf, 1024)))
 	{
 		if (nbytes == -1 || !buf)
 		{
+			free(buf);
 			/* dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]); */
 			/* closer(&fd, &fd1); */
 			/* exit(98); */
 			read_fail(&fd, &fd1, av[1]);
 		}
-		nbytes = write(fd1, buf, nbytes);
-		if (nbytes == -1)
+		if (write(fd1, buf, nbytes) == -1)
 		{
+			free(buf);
 			/* dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]); */
 			/* closer(&fd, &fd1); */
 			/* exit(99); */
@@ -71,25 +72,16 @@ int main(int ac, char **av)
  */
 void closer(int *f, int *f1)
 {
-	int check = 0;
 
-	if (f /* && close(*f) == -1 */)
+	if (f && close(*f) == -1)
 	{
-		check = close(*f);
-		if (check == -1)
-		{
-			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
-			exit(100);
-		}
+		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
+		exit(100);
 	}
-	if (f1 /* && close(*f1) == -1 */)
+	if (f1 && close(*f1) == -1)
 	{
-		check = close(*f1);
-		if (check == -1)
-		{
-			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
-			exit(100);
-		}
+		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
+		exit(100);
 	}
 }
 
