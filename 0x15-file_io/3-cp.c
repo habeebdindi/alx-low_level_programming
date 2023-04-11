@@ -64,7 +64,7 @@ void closer(int *f, int *f1)
 		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
 		exit(100);
 	}
-	if (f && close(*f1) == -1)
+	if (f1 && close(*f1) == -1)
 	{
 		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
 		exit(100);
