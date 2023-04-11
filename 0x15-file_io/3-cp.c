@@ -59,16 +59,25 @@ int main(int ac, char **av)
  */
 void closer(int *f, int *f1)
 {
+	int c = 0;
 
-	if (close(*f) == -1)
+	if (f)
 	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
-		exit(100);
+		c = close(*f);
+		if (c == -1)
+		{
+			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
+			exit(100);
+		}
 	}
-	if (close(*f1) == -1)
+	if (f1)
 	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
-		exit(100);
+		c = close(*f1);
+		if (c == -1)
+		{
+			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
+			exit(100);
+		}
 	}
 }
 
