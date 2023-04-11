@@ -27,7 +27,7 @@ int main(int ac, char **av)
 
 	fd1 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 00664);
 	if (fd1 == -1)
-		write_fail(&fd, NULL, av[2]);
+		write_fail(NULL, NULL, av[2]);
 
 	buf = malloc(1024);
 	if (!buf)
@@ -59,19 +59,16 @@ int main(int ac, char **av)
  */
 void closer(int *f, int *f1)
 {
-	if (f)
-		if (close(*f) == -1)
-		{
-			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
-			exit(100);
-		}
-
-	if (f1)
-		if (close(*f1) == -1)
-		{
-			dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
-			exit(100);
-		}
+	if (f && close(*f) == -1)
+	{
+		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
+		exit(100);
+	}
+	if (f && close(*f1) == -1)
+	{
+		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f1);
+		exit(100);
+	}
 }
 
 /**
