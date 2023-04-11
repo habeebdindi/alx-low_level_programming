@@ -18,7 +18,6 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
@@ -31,8 +30,9 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-
 	buf = malloc(strlen(av[1]) + 1);
+	if (!buf)
+		return (-1);
 	while ((nbytes = read(fd, buf, 1024)))
 		if (write(fd1, buf, nbytes) == -1)
 		{
@@ -54,8 +54,8 @@ void closer(int *f, int *f1)
 {
 	if (close(*f) == -1)
 	{
-	        dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
-	        exit(100);
+		dprintf(STDERR_FILENO, "Can't close fd %d\n", *f);
+		exit(100);
 	}
 	if (close(*f1) == -1)
 	{
