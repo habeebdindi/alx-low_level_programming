@@ -12,18 +12,18 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	hash_node_t *item = ht->array[index];
 	hash_node_t *temp = item;
 
+	if (!ht)
+		return (NULL);
 	if (item)
 	{
 		if (strcmp(item->key, key) == 0)
 			return (item->value);
-		else
+
+		while (temp->next != NULL)
 		{
-			while (temp->next != NULL)
-			{
-				if (strcmp(temp->key, key))
-					return (temp->value);
-				temp = temp->next;
-			}
+			if (strcmp(temp->key, key))
+				return (temp->value);
+			temp = temp->next;
 		}
 	}
 	return (NULL);
