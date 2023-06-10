@@ -9,35 +9,33 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_item = create_item((char *)key, (char *)value);
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
-	hash_node_t *current_item;
+	hash_node_t *curr_item, *new_item = create_item((char *)key, (char *)value);
+	unsigned long int i, index = key_index((const unsigned char *)key, ht->size);
 
-	if (!new_item)
+	if (!new_item || !ht)
 		return (0);
-	current_item = ht->array[index];
-	if (current_item == NULL)
+	curr_item = ht->array[index];
+	if (curr_item == NULL)
 	{
 		/* means the key doesnt exist */
-		if (index == ht->size)
+		for (i = 0; ht->array[i] != NULL; i++)
+			;
+		if (i == ht->size)
 		{
 			/* table is full */
-			free(new_item);
+			free_item(new_item);
 			return (0);
 		}
 		ht->array[index] = new_item;
 	}
 	else
 	{
-		if (strcmp(current_item->key, key) == 0)
-		{
+		if (strcmp(curr_item->key, key) == 0)
 			strcpy(ht->array[index]->value, value);
-			return (1);
-		}
 		else
 		{
-			current_item->next = new_item;
-			return (1);
+			ht->array[index] = new_item;
+			new_item->next = curr_item;
 		}
 	}
 	return (1);
@@ -74,4 +72,15 @@ hash_node_t *create_item(char *key, char *value)
 	strcpy(item->key, key);
 	strcpy(item->value, value);
 	return (item);
+}
+
+/**
+ * free_item - frees an item of the hash table.
+ * @item: pointer to the item to be freed.
+ */
+void free_item(hash_node_t *item)
+{
+	free(item->key);
+	free(item->value);
+	free(item);
 }
