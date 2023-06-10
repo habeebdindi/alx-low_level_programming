@@ -10,10 +10,16 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *curr_item, *new_item = create_item((char *)key, (char *)value);
-	unsigned long int i, index = key_index((const unsigned char *)key, ht->size);
+	unsigned long int i, index;
 
-	if (!new_item || !ht)
+	if (!new_item)
 		return (0);
+	if (!ht)
+	{
+		free_item(new_item);
+		return (0);
+	}
+	index = key_index((const unsigned char *)key, ht->size);
 	curr_item = ht->array[index];
 	if (curr_item == NULL)
 	{
