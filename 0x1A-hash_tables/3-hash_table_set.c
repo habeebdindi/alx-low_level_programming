@@ -1,7 +1,5 @@
 #include "hash_tables.h"
 
-int count = 0;
-
 /**
  * hash_table_set - adds an element to the hash table.
  * @key: they key.
@@ -11,8 +9,8 @@ int count = 0;
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_item = create_item(key, value);
-	unsigned long int index = key_index(key, size);
+	hash_node_t *new_item = create_item((char *)key, (char *)value);
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 	hash_node_t *current_item;
 
 	if (!ht || !new_item)
@@ -21,10 +19,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (current_item == NULL)
 	{
 		/* means the key doesnt exist */
-		if (count == ht->size)
+		if (index == ht->size)
 		{
+			/* table is full */
 			free(new_item);
-			return (0); /* table is full */
+			return (0);
 		}
 		ht->array[index] = new_item;
 	}
@@ -37,7 +36,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			
+			current_item->next = new_item;
+			return (1);
 		}
 	}
 	return (1);
