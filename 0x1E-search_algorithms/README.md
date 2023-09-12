@@ -1,0 +1,1 @@
+# This directory contains solutions to problems, using various searching algorithms
